@@ -1,0 +1,76 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 10px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    width: 95%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+.controls {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.controls button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.controls button:hover {
+    background-color: #4cae4c;
+}
+.controls input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+.log-container {
+    height: 60vh;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #282c34; /* Dark background for logs */
+    color: #abb2bf; /* Light grey text */
+    border-radius: 4px;
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+    font-size: 0.9em;
+}
+.log-entry {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.log-entry.client {
+    color: #61afef; /* Blue for client logs */
+}
+.log-entry.server {
+    color: #98c379; /* Green for server logs */
+}
+.log-entry.error {
+    color: #e06c75; /* Red for errors */
+}
+.log-entry.warning {
+    color: #e5c07b; /* Yellow for warnings */
+}
+.log-entry.system { /* Added for system messages from the UI itself */
+    color: #c678dd; /* Purple for system messages */
+    font-style: italic;
+}

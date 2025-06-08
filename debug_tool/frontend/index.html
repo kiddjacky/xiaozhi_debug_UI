@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Debug Log Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-time Debug Logs</h1>
+        <div class="controls">
+            <button id="clearLogsBtn">Clear Logs</button>
+            <label for="filterInput">Filter:</label>
+            <input type="text" id="filterInput" placeholder="Enter keyword...">
+        </div>
+        <div id="logContainer" class="log-container">
+            <!-- Logs will be appended here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
