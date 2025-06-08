@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debug UI</title>
+</head>
+<body>
+  <h1>Debug UI</h1>
+  <form id="debugForm">
+    <label for="requestData">Request Data:</label>
+    <input type="text" id="requestData" name="requestData">
+    <button type="submit">Send Request</button>
+  </form>
+  <div id="responseMessage"></div>
+  <script>
+    document.getElementById('debugForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const requestValue = document.getElementById('requestData').value;
+      const dataObject = { data: requestValue };
+      const responseMessageDiv = document.getElementById('responseMessage');
+
+      fetch('http://localhost:5000/debug_request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataObject)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        responseMessageDiv.textContent = `Server response: ${data.message}`;
+        document.getElementById('requestData').value = ''; // Clear input field
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        responseMessageDiv.textContent = `Error: ${error}. Is the Python server running?`;
+      });
+    });
+  </script>
+</body>
+</html>
